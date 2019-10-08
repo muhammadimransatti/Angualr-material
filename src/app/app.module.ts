@@ -14,6 +14,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonToggleModule
     
   ],
   providers: [],
