@@ -1,1 +1,82 @@
-<p>navigation works!</p>
+<h1>1. Menu</h1>
+
+
+<h2>1.  Basic menu</h2>
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu color="primary" #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+
+<mat-menu  #appMenu="matMenu" xPosition="after" yPosition="below">
+    <button mat-menu-item [matMenuTriggerFor]="subMenu">Front End</button>
+    <button mat-menu-item [matMenuTriggerFor]="subMenu2">Back End</button>
+    <button mat-menu-item [matMenuTriggerFor]="subMenu3">Databases</button>
+  </mat-menu>
+<button mat-flat-button [matMenuTriggerFor]="appMenu">Web Developer</button>
+
+<mat-menu #lazyMenu="matMenu">
+    <ng-template matMenuContent let-name="name" let-sports="sports">
+        <button mat-menu-item>Setting</button>
+        <button mat-menu-item>Sports is {{sports}}</button>
+        <button mat-menu-item>Log out {{name}}</button>
+    </ng-template>
+  </mat-menu> 
+  <!-- mat-menu-item -->
+  <button mat-menu-item [matMenuTriggerFor]="lazyMenu">Vishwas</button>
+  <button mat-menu-item [matMenuTriggerFor]="lazyMenu">Codevolution</button>
+  <!-- mat-raised-button -->
+  <button mat-raised-button [matMenuTriggerFor]="lazyMenu">Vishwas</button>
+  <button mat-raised-button [matMenuTriggerFor]="lazyMenu">Codevolution</button>
+<!-- trigger data -->
+<button mat-raised-button [matMenuTriggerData]="{name:'Vishwas', sports: 'cricket'}" [matMenuTriggerFor]="lazyMenu">Vishwas</button>
+<button mat-raised-button [matMenuTriggerData]="{name:'Codevolution',sports: 'footbal'}" [matMenuTriggerFor]="lazyMenu">Codevolution</button>
+
+<h1>2.  Menu with icons</h1>
+
+ <h1>3.     Nested menu</h1>     
+ <!-- front end -->
+ <mat-menu  #subMenu="matMenu">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>React</button>
+    <button mat-menu-item>Vue</button>
+  </mat-menu>
+
+   <!-- back end -->
+ <mat-menu  #subMenu2="matMenu">
+    <button mat-menu-item>Node</button>
+    <button mat-menu-item>Express</button>
+    <button mat-menu-item>PHP</button>
+  </mat-menu>
+
+     <!-- databases -->
+ <mat-menu  #subMenu3="matMenu">
+    <button mat-menu-item>Oracle</button>
+    <button mat-menu-item>MySQL</button>
+    <button mat-menu-item>Mongodb</button>
+  </mat-menu>
+
+ <h1>2. Side Nav</h1>
+ <mat-sidenav-container>
+   <!-- mode="push", mode="side" mode="over"-->
+    <mat-sidenav #sidenav (opened)="log('Opened')" (closed)="log('Closed')" mode="side" ([opened])="opened">Sidenav</mat-sidenav>
+    <mat-sidenav-content>Main
+      <button (click)="opened=!opened">Toggle Opened</button>
+      <button (click)="sidenav.open()">Open</button>
+      <button (click)="sidenav.close()">Close</button>
+      <button (click)="sidenav.toggle()">Toggle</button>
+    </mat-sidenav-content>
+ </mat-sidenav-container> 
+
+
+ <h1>3. Toolbar</h1>
+ <mat-toolbar color="primary" class="navbar">
+   <div>CodeEvolution</div>
+   <div>
+        <span>Home</span>
+        <span>About</span>
+        <span>Services</span>
+
+   </div>
+ </mat-toolbar>

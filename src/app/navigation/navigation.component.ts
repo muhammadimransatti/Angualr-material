@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
+  opened= false;
+  log(state){
+    console.log(state)
+  }
   constructor() { }
 
   ngOnInit() {
